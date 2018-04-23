@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+{% set pagetitle = 'Home' %}
+
+{% block content %}
+<div class="container">
+  <h1>TMNT The RPG</h1>
+  <h2>Home</h2>
+  <p>Youre are logged in!</p>
+  <p><small>Welcome, <span id="email-label"></span></small></p>
+
+  <ul>
+    <li><a href="/profile-edit.html">Edit Profile</a></li>
+    <li><a id="btn-logout">Log Out</a></li>
+  </ul>
+</div>
+{% endblock content %}

@@ -84,7 +84,7 @@ gulp.task('templates', () => {
 
 gulp.task('scripts', () => {
   var b = browserify({
-    entries: ['./src/js/main.js'],
+    entries: ['./src/js/main.js', './src/js/apps/alert/alert.js', './src/js/apps/auth/auth.js'],
     debug: true
   })
 
