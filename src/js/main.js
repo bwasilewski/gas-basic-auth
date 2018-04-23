@@ -1,6 +1,8 @@
 const $ = require('jQuery');
 const bootstrap = require('bootstrap')
 const auth = require('./apps/auth/auth.js')
+const profile = require('./apps/profile/profile.js')
+const alert = require('./apps/alert/alert.js')
 
 auth.initAuth({
     apiKey: "AIzaSyDByoKRhcKOCVY-9YTPMGcSTwXJyFm4LXM",
@@ -33,4 +35,21 @@ $('#btn-logout').bind('click', function (ev) {
     ev.preventDefault()
     auth.logOut()
 });
+
+$('#btn-profile').bind('click', function (ev) {
+    let data = {
+        displayName: $('#field-username').val()
+    }
+
+    profile.updateProfileData(data, function (data) {
+        $('#field-username').text(data.displayName)
+        alert.appendAlert('success', 'Your profile was updated successfully')
+    }, function (err) {
+        alert.appendAlert('warning', 'Something went wrong')
+    });
+})
+
+
+
+
 

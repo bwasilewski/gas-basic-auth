@@ -37,10 +37,12 @@ module.exports = {
         let that = this
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
+                console.log(user)
+                that.user = user
                 that.handleUser(user)
-            } else {
-                
-            }
+            } else [
+                that.user = null
+            ]
         })
     },
 
@@ -54,7 +56,7 @@ module.exports = {
             alert.appendAlert('warning', 'Please take a moment to verify your email address.')
         }
 
-        $('#email-label').text(user.email)
+        $('#username-label').text(user.displayName)
     }
 }
 
